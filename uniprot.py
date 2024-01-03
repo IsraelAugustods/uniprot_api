@@ -4,18 +4,11 @@ import requests
 import difflib
     
 # Definiçao da lista de proteinas e ID dos organismos que queremos.
-data = pd.read_excel('datasets/T1xT4_14DAA - RNA-seq Cana_Tupaciguara_2022.xlsx')
+data = pd.read_excel('datasets/exemplo.xlsx')
 protein_names = data['protein_name'].head(5).to_list()
-
-
-
-print(protein_names)
 
 # Arabidopsis -> Arroz -> Milho -> Sorgo
 organism_id_c3 = ['3702','4530','4577','4558']
-
-# Sorgo -> Milho -> Setaria
-organism_id_c4 = ['4558', '4577', '4554']
 
 blacklist = ['type=', 'hypothetical', 'Hypothetical']
 
@@ -128,4 +121,8 @@ def get_c3(protein_names, organism_id_c3):
     df_final['CC_c3'] = df_c3['CC_c3']
     df_final['BP_c3'] = df_c3['BP_c3']
 
-    return  df_final.to_excel('t1.xlsx')
+    return  df_final.to_excel('exemplo1.xlsx')
+
+get_c3(protein_names, organism_id_c3)
+
+
